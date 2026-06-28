@@ -1,0 +1,26 @@
+[package]
+name = "pd200x"
+version = "0.1.0"
+edition = "2024"
+description = "Async Rust driver for the Maono PD200X USB microphone"
+license = "MIT"
+repository = "https://github.com/advnpzn/pd200x"
+homepage = "https://github.com/advnpzn/pd200x"
+documentation = "https://docs.rs/pd200x"
+keywords = ["maono", "pd200x", "usb", "hid", "microphone"]
+categories = ["hardware-support", "api-bindings"]
+readme = "README.md"
+exclude = [
+    "CLAUDE.md",
+    "99-pd200x.rules",
+    "tests/hardware.rs",
+    "*.py",
+]
+
+[dependencies]
+nusb = "0.1"
+tokio = { version = "1", features = ["rt", "time"] }
+thiserror = "2"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "time", "macros"] }
