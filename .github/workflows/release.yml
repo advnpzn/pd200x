@@ -9,6 +9,8 @@ jobs:
   publish:
     name: Publish to crates.io
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     # Only publish from the upstream repo, not forks
     if: github.repository == 'advnpzn/pd200x'
     steps:
