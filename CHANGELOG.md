@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `PD200X::open()` — async USB device discovery and HID interface claim by VID `0x352F` / PID `0x0104`
+- `PD200X::open()` - async USB device discovery and HID interface claim by VID `0x352F` / PID `0x0104`
 - `send_command` / `query` primitives for raw register read/write over USB HID
 - Parametric EQ control across 7 bands (Band1–Band5, HPF, LPF) via a single `set_eq_band` call
 - High-level async API:
@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `set_compressor`, `set_limiter`
   - `set_rgb_enabled`, `set_rgb_brightness`, `set_rgb_color`, `set_lighting_linkage`
 - `RgbColor`, `EqBand`, `EqBandParams`, `FilterType` public types
-- Automatic HID interface discovery by USB class code — no hardcoded interface numbers
+- Automatic HID interface discovery by USB class code - no hardcoded interface numbers
 - Fallback to HID `SET_REPORT` control transfer when no interrupt OUT endpoint is present
 - Unsolicited packet filtering in `query` loop (discards continuous level-meter `0x2034` packets)
 - udev rule (`99-pd200x.rules`) for rootless USB access on Linux
