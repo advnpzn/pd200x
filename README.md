@@ -91,15 +91,15 @@ mic.set_rgb_color(RgbColor::Cyan).await?;
 | Noise gate | ✅ | ✅ |
 | Noise cancellation | ✅ | ✅ |
 | NC strength | ✅ | ✅ |
-| EQ bands (×5) | ✅ | — |
-| HPF / LPF | ✅ | — |
-| Compressor | ✅ | — |
-| Limiter | ✅ | — |
-| RGB enable | ✅ | — |
-| RGB brightness | ✅ | — |
-| RGB color | ✅ | — |
-| Lighting linkage | ✅ | — |
+| EQ bands (×5) | ✅ | - |
+| HPF / LPF | ✅ | - |
+| Compressor | ✅ | - |
+| Limiter | ✅ | - |
+| RGB enable | ✅ | - |
+| RGB brightness | ✅ | - |
+| RGB color | ✅ | - |
+| Lighting linkage | ✅ | - |
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+see [LICENSE](LICENSE).
