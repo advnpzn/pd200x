@@ -1,18 +1,17 @@
 //! # pd200x
 //!
-//! Async Rust driver for the PD200X USB microphone (VID `0x352F`, PID `0x0104`).
+//! Rust driver for the PD200X USB microphone (VID `0x352F`, PID `0x0104`).
 //!
 //! ## Usage
 //!
 //! ```rust,no_run
 //! use pd200x::PD200X;
 //!
-//! #[tokio::main]
-//! async fn main() -> pd200x::Result<()> {
-//!     let mic = PD200X::open().await?;
+//! fn main() -> pd200x::Result<()> {
+//!     let mic = PD200X::open()?;
 //!
-//!     mic.set_mic_gain(80).await?;
-//!     mic.set_mic_monitor(true).await?;
+//!     mic.set_mic_gain(80)?;
+//!     mic.set_mic_monitor(true)?;
 //!     Ok(())
 //! }
 //! ```
@@ -32,6 +31,7 @@ mod device;
 mod error;
 mod packet;
 mod protocol;
+pub mod presets;
 
 pub use device::PD200X;
 pub use error::{Error, Result};

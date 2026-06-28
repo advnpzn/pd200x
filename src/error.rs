@@ -5,15 +5,11 @@ pub enum Error {
     #[error("PD200X not found (VID 0x352F PID 0x0104)")]
     DeviceNotFound,
 
-    /// A low-level USB error from `nusb`.
-    #[error("USB error: {0}")]
-    Usb(#[from] nusb::Error),
+    /// A low-level HID error from `hidapi`.
+    #[error("HID error: {0}")]
+    Hid(#[from] hidapi::HidError),
 
-    /// A USB transfer completed with an error status.
-    #[error("transfer error: {0}")]
-    Transfer(#[from] nusb::transfer::TransferError),
-
-    /// The device did not respond within the I/O timeout (1 second).
+    /// The device did not respond within the I/O timeout (2 seconds).
     #[error("I/O timeout")]
     Timeout,
 

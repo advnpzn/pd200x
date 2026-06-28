@@ -1,8 +1,8 @@
 [package]
 name = "pd200x"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
-description = "Async Rust driver for the Maono PD200X USB microphone"
+description = "Rust driver for the Maono PD200X USB microphone"
 license = "MIT"
 repository = "https://github.com/advnpzn/pd200x"
 homepage = "https://github.com/advnpzn/pd200x"
@@ -18,9 +18,5 @@ exclude = [
 ]
 
 [dependencies]
-nusb = "0.1"
-tokio = { version = "1", features = ["rt", "time"] }
+hidapi = "2"
 thiserror = "2"
-
-[dev-dependencies]
-tokio = { version = "1", features = ["rt", "rt-multi-thread", "time", "macros"] }

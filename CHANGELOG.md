@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-06-28
+
+### Changed
+
+- **Breaking**: replaced async `nusb` + `tokio` stack with synchronous `hidapi` - all methods are now plain `fn` instead of `async fn`, no runtime required
+- Removed `tokio` dependency entirely; `hidapi` is the only USB dependency
+- `Error` no longer wraps `nusb::Error` / `nusb::transfer::TransferError`; USB errors now surface as `Error::Hid(hidapi::HidError)`
+- `PD200X::open()` is now synchronous and no longer calls `detach_and_claim_interface`; the kernel HID driver remains attached, allowing concurrent readers
+
+### Added
+
+- `pd200x::presets` module with 8 named EQ presets reverse-engineered from USB captures of the MAONO Link app: `FLAT`, `LOW_CUT`, `MID_BOOST`, `LOW_CUT_MID_BOOST`, `BRIGHT`, `NATURAL`, `CLASSIC`, `DEEP`
+- `PD200X::set_eq_preset(bands: &[(EqBand, EqBandParams)])` - applies a full preset or any custom slice of bands in one call
+- `presets::Preset` type alias for `[(EqBand, EqBandParams); 7]`
+
+### Fixed
+
+- Race condition in `query()`: `hidapi`'s `read_timeout` is called with the deadline already set before the query packet is sent, so device responses can never arrive before the read is armed
+
 ## [0.1.0] - 2026-06-28
 
 ### Added

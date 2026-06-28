@@ -30,7 +30,7 @@ pub fn build_query_packet(cmd: u16) -> [u8; 65] {
     p
 }
 
-// pairs: [(cmd, value); 5] — one per EQ parameter slot
+// pairs: [(cmd, value); 5] - one per EQ parameter slot
 pub fn build_eq_packet(pairs: [(u16, u16); 5]) -> [u8; 65] {
     let mut p = [0u8; 65];
     p[0..6].copy_from_slice(&[0x4B, 0xC4, 0x1B, 0x00, 0x00, 0x03]);
@@ -46,7 +46,7 @@ pub fn build_eq_packet(pairs: [(u16, u16); 5]) -> [u8; 65] {
     p
 }
 
-// Response packets from the device are 64 bytes (not 65 — the device does not
+// Response packets from the device are 64 bytes (not 65 - the device does not
 // echo back a report ID byte the way the host transmits one).
 pub fn parse_response(raw: &[u8; 64]) -> Result<Response> {
     if raw[1] != 0xC4 {

@@ -38,15 +38,15 @@ pub mod cmd {
 #[repr(u16)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum FilterType {
-    /// Bell/peaking EQ — boosts or cuts around a centre frequency.
+    /// Bell/peaking EQ - boosts or cuts around a centre frequency.
     Peaking = 0,
-    /// Low-pass filter — attenuates frequencies above the cutoff.
+    /// Low-pass filter - attenuates frequencies above the cutoff.
     LowPass = 1,
-    /// High-pass filter — attenuates frequencies below the cutoff.
+    /// High-pass filter - attenuates frequencies below the cutoff.
     HighPass = 2,
-    /// Low-shelf filter — boosts or cuts all frequencies below the shelf frequency.
+    /// Low-shelf filter - boosts or cuts all frequencies below the shelf frequency.
     LowShelf = 3,
-    /// High-shelf filter — boosts or cuts all frequencies above the shelf frequency.
+    /// High-shelf filter - boosts or cuts all frequencies above the shelf frequency.
     HighShelf = 4,
 }
 
@@ -101,7 +101,7 @@ impl EqBand {
 ///
 /// Pass this to `PD200X::set_eq_band` to configure any of the seven bands.
 ///
-/// For `Hpf` and `Lpf` bands, `gain_db` and `q` are ignored by the firmware —
+/// For `Hpf` and `Lpf` bands, `gain_db` and `q` are ignored by the firmware -
 /// use `PD200X::set_hpf` / `PD200X::set_lpf` for those if you only need
 /// to set the cutoff frequency, or supply `EqBandParams` directly via
 /// `set_eq_band` for full control over the constants.
