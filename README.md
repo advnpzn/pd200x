@@ -1,5 +1,10 @@
 # pd200x
 
+[![crates.io](https://img.shields.io/crates/v/pd200x.svg)](https://crates.io/crates/pd200x)
+[![docs.rs](https://docs.rs/pd200x/badge.svg)](https://docs.rs/pd200x)
+[![CI](https://github.com/advnpzn/pd200x/actions/workflows/ci.yml/badge.svg)](https://github.com/advnpzn/pd200x/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 Async Rust driver for the **Maono PD200X** USB microphone.
 
 Controls microphone gain, mute, EQ, noise cancellation, compressor, limiter,
